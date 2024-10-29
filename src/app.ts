@@ -12,9 +12,12 @@ const main = async () => {
         const body = req.body
         const phone = body.phone
         const message = body.message
+	const mediaUrl = body.mediaUrl
         
-        await bot.sendMessage(phone, message, {})
-        res.end('esto es del server')
+        await bot.sendMessage(phone, message, {
+		media: mediaUrl
+	})
+        res.end('Mensaje enviado')
     }))
 
     await createBot({
